@@ -6,7 +6,7 @@
 class RGBMode {
     public:
     RGBMode() {}
-    virtual void update(int index, RGB rgb) const = 0;
+    virtual void update(int index, RGB* rgb) const = 0;
 };
 
 #endif /* "RGB_MODE_H" */

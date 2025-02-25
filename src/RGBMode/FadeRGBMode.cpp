@@ -7,11 +7,12 @@ class FadeRGBMode : public RGBMode {
     public:
     FadeRGBMode() {}
 
-    void update(int index, RGB rgb) const override {
+    void update(int index, RGB* rgb) const override {
         int brightness = abs((index * 8) - 256) + 8;
         brightness = (brightness > 255)? 255 : brightness;
-        rgb.setAllBrightness(brightness);
-        rgb.show();
+        rgb->setAllColor(_color);
+        rgb->setAllBrightness(brightness);
+        rgb->show();
     }
 
     void setColor(uint32_t color) {

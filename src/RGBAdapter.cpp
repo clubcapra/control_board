@@ -9,7 +9,7 @@ void RGBAdapter::setMode(RGBMode& mode) {
 
 void RGBAdapter::update() {
     // Assuming _mode is an enum or similar, handle the update logic here
-    _mode->update(_index, *this);
+    _mode->update(_index, this);
     indexAdd();
 }
 

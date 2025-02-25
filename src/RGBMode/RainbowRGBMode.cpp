@@ -4,13 +4,13 @@ class RainbowRGBMode : public RGBMode {
     public:
     RainbowRGBMode() {}
 
-    void update(int index, RGB rgb) const override {
-        rgb.setAllBrightness(255);
+    void update(int index, RGB* rgb) const override {
+        rgb->setAllBrightness(255);
         
-        for (int i = 0; i < rgb.numPixels(); i++) {
-            rgb.setColor(i, wheel(((i + index) * 256 * 3 / rgb.numPixels()) & 255));
+        for (int i = 0; i < rgb->numPixels(); i++) {
+            rgb->setColor(i, wheel(((i + index) * 256 * 3 / rgb->numPixels()) & 255));
         }
-        rgb.show();
+        rgb->show();
     }
 
     private:

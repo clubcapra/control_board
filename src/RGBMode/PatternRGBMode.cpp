@@ -8,28 +8,28 @@ class PatternRGBMode : public RGBMode {
     public:
     PatternRGBMode() {}
 
-    void update(int index, RGB rgb) const override {
-        rgb.setAllBrightness(255);
+    void update(int index, RGB* rgb) const override {
+        rgb->setAllBrightness(255);
 
         if (index / 8 % 2 == 0)
         {
-            for (int i = 0; i < rgb.numPixels(); i++) {
+            for (int i = 0; i < rgb->numPixels(); i++) {
                 if (i % 2 == 0) {
-                    rgb.setColor(i, _color1);
+                    rgb->setColor(i, _color1);
                 } else {
-                    rgb.setColor(i, _color2);
+                    rgb->setColor(i, _color2);
                 }
             }
         } else {
-            for (int i = 0; i < rgb.numPixels(); i++) {
+            for (int i = 0; i < rgb->numPixels(); i++) {
                 if (i % 2 == 0) {
-                    rgb.setColor(i, _color2);
+                    rgb->setColor(i, _color2);
                 } else {
-                    rgb.setColor(i, _color1);
+                    rgb->setColor(i, _color1);
                 }
             }
         }
-        rgb.show();
+        rgb->show();
     }
 
     void setPattern(uint32_t color1, uint32_t color2) {
