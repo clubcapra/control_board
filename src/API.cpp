@@ -37,35 +37,35 @@ void API::setStatus(u_int8_t status) {
     switch (status)
     {
     case STATUS_OK:
-        _rgb->setAllColor(GREEN);
-        _rgb->setMode(RGBMode::STATIC);
+        _staticMode.setColor(GREEN);
+        _rgb->setMode(_staticMode);
         break;
     case STATUS_RUNNING: // WARNING
-        _rgb->setPatern(ORANGE, OFF);
-        _rgb->setMode(RGBMode::PATTERN);
+        _patternMode.setPattern(ORANGE, OFF);
+        _rgb->setMode(_patternMode);
         break;
     case STATUS_UNKNOWN_ERROR: // ERROR
-        _rgb->setAllColor(RED);
-        _rgb->setMode(RGBMode::STATIC);
+        _staticMode.setColor(RED);
+        _rgb->setMode(_staticMode);
         break;
     case STATUS_TIMEOUT:
-        _rgb->setPatern(YELLOW, GREEN);
-        _rgb->setMode(RGBMode::PATTERN);
+        _patternMode.setPattern(YELLOW, GREEN);
+        _rgb->setMode(_patternMode);
         break;
     case STATUS_BATTERY_LOW: // Battery Low
-        _rgb->setPatern(RED, OFF);
-        _rgb->setMode(RGBMode::SWAP);
+        _swapMode.setPattern(RED, OFF);
+        _rgb->setMode(_swapMode);
         break;
     case STATUS_LOST_COMM: // Lost Communication
-        _rgb->setAllColor(PURPLE);
-        _rgb->setMode(RGBMode::FADE);
+        _fadeMode.setColor(PURPLE);
+        _rgb->setMode(_fadeMode);
         break;
     case STATUS_POLICE: // Police
-        _rgb->setPatern(RED, BLUE);
-        _rgb->setMode(RGBMode::PATTERN);
+        _patternMode.setPattern(RED, BLUE);
+        _rgb->setMode(_patternMode);
         break;
     case STATUS_RAINBOW: // Rainbow
-        _rgb->setMode(RGBMode::RAINBOW);
+        _rgb->setMode(_rainbowMode);
         break;
     default:
         break;
@@ -79,6 +79,12 @@ void API::onTimeout() {
 
 void API::setRGB(RGBAdapter* rgb) {
     _rgb = rgb;
+
+    _fadeMode = FadeRGBMode();
+    _patternMode = PatternRGBMode();
+    _staticMode = StaticRGBMode();
+    _swapMode = SwapRGBMode();
+    _rainbowMode = RainbowRGBMode();
 }
 
 void API::setWinch(Winch* winch) {

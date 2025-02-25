@@ -1,5 +1,4 @@
 #include "RGBAdapter.h"
-#include "RGBEnums.h"
 #include "Winch.h"
 #include "LED.h"
 #include "CANCommunication.h"
