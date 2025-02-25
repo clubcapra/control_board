@@ -1,0 +1,15 @@
+#ifndef STATUS_ENUMS_H
+#define STATUS_ENUMS_H
+
+enum Status {
+    STATUS_OK = 0,
+    STATUS_RUNNING = 1,
+    STATUS_UNKNOWN_ERROR = 2,
+    STATUS_TIMEOUT = 3,
+    STATUS_BATTERY_LOW = 4,
+    STATUS_LOST_COMM = 5,
+    STATUS_POLICE = 14,
+    STATUS_RAINBOW = 15
+};
+
+#endif /* STATUS_ENUMS_H */
