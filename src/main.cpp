@@ -5,7 +5,7 @@
 #include "CANCommunication.h"
 #include "API.h"
 
-RGBAdapter rgb(27, PA9);  // Create RGB object with 12 LEDs on pin PB12
+RGBAdapter rgb(27, PA9);  // Create RGB object with 12 LEDs on pin PA9
 Winch winch(PA3, PA4, PA10, PA2);  // Create Winch object with motor control pins
 LED frontLED(PC4);  // Create LED object for front LED
 LED backLED(PB4);  // Create LED object for back LED
