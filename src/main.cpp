@@ -38,6 +38,4 @@ void loop() {
     can.receiveMessage();  // Check for incoming CAN messages
     can.checkWatchdog();  // Check for watchdog timeout
     rgb.update();  // Update RGB LEDs based on current mode
-
-    delay(25);  // Small delay to prevent CPU hogging
 }

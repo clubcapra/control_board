@@ -1,6 +1,6 @@
 #include "Winch.h"
 
-Winch::Winch(uint8_t motorA, uint8_t motorB, u_int8_t lock1, u_int8_t lock2) : _motorA(motorA), _motorB(motorB), _lock1(lock1), _lock2(lock2) {}
+Winch::Winch(uint8_t motorA, uint8_t motorB, uint8_t lock1, uint8_t lock2) : _motorA(motorA), _motorB(motorB), _lock1(lock1), _lock2(lock2) {}
 
 void Winch::init() {
     pinMode(_motorA, OUTPUT);

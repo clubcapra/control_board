@@ -14,5 +14,5 @@ void RGBAdapter::update() {
 }
 
 void RGBAdapter::indexAdd() {
-    _index = (_index + 1) % 64;
+    _index = (_index + 1) % 256;
 }

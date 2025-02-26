@@ -26,10 +26,10 @@ public:
     void setStrobeLED(LED* strobeLED);
     void setDebugLED(LED* debugLED);
 
-    void onReceive(u_int8_t data[], u_int8_t length);
+    void onReceive(uint8_t data[], uint8_t length);
     void onTimeout();
 
-    void setStatus(u_int8_t status);
+    void setStatus(uint8_t status);
 
 private:
     RGBAdapter* _rgb;

@@ -16,7 +16,7 @@ public:
      * @param motorA Pin controlling direction A
      * @param motorB Pin controlling direction B
      */
-    Winch(uint8_t motorA, uint8_t motorB, u_int8_t lock1, u_int8_t lock2);
+    Winch(uint8_t motorA, uint8_t motorB, uint8_t lock1, uint8_t lock2);
 
     /**
      * @brief Initializes the motor control pins

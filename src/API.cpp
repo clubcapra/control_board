@@ -1,31 +1,36 @@
 #include "API.h"
 
+#define FRONT_LED_BIT 1
+#define BACK_LED_BIT 1 << 1
+#define DEBUG_LED_BIT 1 << 2
+#define WINCH_BRAKE_BIT 1 << 3
+
 API::API() {}
 
-void API::onReceive(u_int8_t data[], u_int8_t length) {
+void API::onReceive(uint8_t data[], uint8_t length) {
     if (length < 2) return;
     
     // Update LEDs
-    if (data[0] >> 0 & 1) {
+    if (data[0] & FRONT_LED_BIT) {
         _frontLED->on();
     } else {
         _frontLED->off();
     }
-    if (data[0] >> 1 & 1) {
+    if (data[0] & BACK_LED_BIT) {
         _backLED->on();
     } else {
         _backLED->off();
     }
-    if (data[0] >> 2 & 1) {
+    if (data[0] & DEBUG_LED_BIT) {
         _debugLED->on();
     } else {
         _debugLED->off();
     }
-    if (data[0] >> 3 & 1) {
+    if (data[0] & WINCH_BRAKE_BIT) {
         _winch->brake();
     } else {
         // Extract winch position (-128 to 127), unsigned to signed
-        int winchPercent = ((data[1] >> 7 & 1) ? data[1] - 0xff - 1 : data[1]);
+        int winchPercent = (int8_t)data[1];
         _winch->motorControl(winchPercent);
     }
 
@@ -33,7 +38,7 @@ void API::onReceive(u_int8_t data[], u_int8_t length) {
     setStatus(status);
 }
 
-void API::setStatus(u_int8_t status) {
+void API::setStatus(uint8_t status) {
     switch (status)
     {
     case STATUS_OK:

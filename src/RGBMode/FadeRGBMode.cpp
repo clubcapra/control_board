@@ -8,7 +8,7 @@ class FadeRGBMode : public RGBMode {
     FadeRGBMode() {}
 
     void update(int index, RGB* rgb) const override {
-        int brightness = abs((index * 8) - 256) + 8;
+        int brightness = abs((index * 2) - 256) + 8;
         brightness = (brightness > 255)? 255 : brightness;
         rgb->setAllColor(_color);
         rgb->setAllBrightness(brightness);
