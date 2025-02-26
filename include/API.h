@@ -5,6 +5,14 @@
 #include "Winch.h"
 #include "LED.h"
 #include "StatusEnums.h"
+#include "RGBMode.h"
+#include "RGBColor.h"
+
+#include "RGBMode/FadeRGBMode.cpp"
+#include "RGBMode/PatternRGBMode.cpp"
+#include "RGBMode/StaticRGBMode.cpp"
+#include "RGBMode/SwapRGBMode.cpp"
+#include "RGBMode/RainbowRGBMode.cpp"
 
 class API
 {
@@ -18,10 +26,10 @@ public:
     void setStrobeLED(LED* strobeLED);
     void setDebugLED(LED* debugLED);
 
-    void onReceive(u_int8_t data[], u_int8_t length);
+    void onReceive(uint8_t data[], uint8_t length);
     void onTimeout();
 
-    void setStatus(u_int8_t status);
+    void setStatus(uint8_t status);
 
 private:
     RGBAdapter* _rgb;
@@ -30,6 +38,12 @@ private:
     LED* _backLED;
     LED* _strobeLED;
     LED* _debugLED;
+
+    FadeRGBMode _fadeMode;
+    PatternRGBMode _patternMode;
+    StaticRGBMode _staticMode;
+    SwapRGBMode _swapMode;
+    RainbowRGBMode _rainbowMode;
 };
 
 #endif /* API_H */

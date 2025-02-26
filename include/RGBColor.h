@@ -1,5 +1,5 @@
-#ifndef RGB_ENUMS_H
-#define RGB_ENUMS_H
+#ifndef RGB_Color_H
+#define RGB_Color_H
 
 enum RGBColor {
     RED = 0xFF0000,
@@ -11,14 +11,6 @@ enum RGBColor {
     ORANGE = 0xF81800,
     PINK = 0xFF1808,
     PURPLE = 0x8000FF,
-};
-
-enum RGBMode {
-    RAINBOW = 0,
-    PATTERN = 1,
-    STATIC = 2,
-    SWAP = 3,
-    FADE = 4,
 };
 
 #endif /* RGB_ENUMS_H */
