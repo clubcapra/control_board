@@ -4,7 +4,7 @@ useCAN = True
 
 bus = None
 if useCAN:
-    bus = can.Bus("can0", bustype="socketcan", bytrate=250000)
+    bus = can.Bus("can0", bustype="socketcan", bytrate=500000)
 
 def message(front_led=False, back_led=False, debug_led=False, winch_brake=False, winch_percent=0, status=0):
     """

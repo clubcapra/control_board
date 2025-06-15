@@ -72,10 +72,8 @@ void CANCommunication::receiveMessage()  // Read data from CAN bus and print out
 }
 
 void CANCommunication::init(){
-    Serial.begin(115200);
     _can.begin();
     _can.setBaudRate(_baudRate);
-    
 }
 
 
