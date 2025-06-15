@@ -3,7 +3,7 @@
 
 #include <Adafruit_NeoPixel.h>
 
-class RGB {
+class RGBController {
 private:
     Adafruit_NeoPixel _strip;
     
@@ -13,7 +13,7 @@ public:
      * @param ledCount Number of LEDs in the strip
      * @param pin Pin where the strip is connected
      */
-    RGB(uint16_t ledCount, uint8_t pin);
+    RGBController(uint16_t ledCount, uint8_t pin);
 
     /**
      * @brief Initializes the LED strip

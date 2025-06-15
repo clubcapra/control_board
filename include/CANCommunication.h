@@ -3,8 +3,8 @@
 
 #include <Arduino.h>
 #include "STM32_CAN.h"
-
-#include "API.h"
+#include <AdapterCBRove.h>
+#include "api.h"
 
 class CANCommunication {
 public:
@@ -13,8 +13,7 @@ public:
     void init();
     void receiveMessage();
     void checkWatchdog();
-
-    void setAPI(API* api);
+    void sendMessage(uint8_t* buff, size_t size);
 
 private:
     int _baudRate;
@@ -22,10 +21,10 @@ private:
     int _canId;
     unsigned long _lastMsgTime;
 
-    API *_api;
 
     STM32_CAN _can;
 
+    Buffer _buff{MAX_ENCODED_SIZE};
     CAN_message_t _msg;
 };
 

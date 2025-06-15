@@ -1,7 +1,7 @@
 #include "RGBAdapter.h"
-#include "RGB.h"
+#include "RGBController.h"
 
-RGBAdapter::RGBAdapter(uint16_t ledCount, uint8_t pin) : RGB(ledCount, pin) {}
+RGBAdapter::RGBAdapter(uint16_t ledCount, uint8_t pin) : RGBController(ledCount, pin) {}
 
 void RGBAdapter::setMode(RGBMode& mode) {
     _mode = &mode;

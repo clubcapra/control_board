@@ -1,19 +1,19 @@
+#pragma once
 #include "RGBMode.h"
 
 class StaticRGBMode : public RGBMode {
-    public:
-    StaticRGBMode() {}
-
-    void update(int index, RGB* rgb) const override{
-        rgb->setAllBrightness(255);
+protected:
+    void updateImpl(int index, RGBController* rgb) override{
         rgb->setAllColor(_color);
         rgb->show();
     }
+public:
+    StaticRGBMode() {}
 
     void setColor(uint32_t color) {
         _color = color;
     }
 
-    private:
+private:
     uint32_t _color;
 };

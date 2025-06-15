@@ -1,10 +1,10 @@
 #ifndef RGB_ADAPTER_H
 #define RGB_ADAPTER_H
 
-#include "RGB.h"
+#include "RGBController.h"
 #include "RGBMode.h"
 
-class RGBAdapter: public RGB {
+class RGBAdapter: public RGBController {
     private:
     /**
      * @brief Increments the index for the effect

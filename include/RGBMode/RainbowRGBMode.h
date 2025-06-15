@@ -1,19 +1,17 @@
 #include "RGBMode.h"
 
 class RainbowRGBMode : public RGBMode {
-    public:
-    RainbowRGBMode() {}
-
-    void update(int index, RGB* rgb) const override {
-        rgb->setAllBrightness(255);
-        
+protected:
+    void updateImpl(int index, RGBController* rgb) override {
         for (int i = 0; i < rgb->numPixels(); i++) {
             rgb->setColor(i, wheel(((i + index) * 256 * 3 / rgb->numPixels()) & 255));
         }
         rgb->show();
     }
+public:
+    RainbowRGBMode() {}
 
-    private:
+private:
     uint32_t wheel(byte WheelPos) const {
         uint8_t r, g, b;
         int index = (WheelPos) % 256;
