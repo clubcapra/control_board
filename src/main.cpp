@@ -8,7 +8,7 @@ RGBAdapter rgb(27, PA9);  // Create RGB object with 12 LEDs on pin PA9
 Winch winch(PA3, PA4, PA10, PA2);  // Create Winch object with motor control pins
 LED frontLED(PC4);  // Create LED object for front LED
 LED backLED(PB4);  // Create LED object for back LED
-LED debugLED(PB6);  // Create LED object for debug LED
+LED debugLED(D13);  // Create LED object for debug LED
 LED strobeLED(PA15);  // Create LED object for strobe LED
 CANCommunication can(250000, 0, 1);  // baud rate, timeout, CAN ID (pa11, pa12 used for CAN)
 API api;
@@ -32,10 +32,14 @@ void setup() {
 
     can.init();
     can.setAPI(&api);
+    Serial.println("Init done");
 }
 
 void loop() {
+    // if (millis() % 1000 > 500) debugLED.on();
+    // else debugLED.off();
     can.receiveMessage();  // Check for incoming CAN messages
     can.checkWatchdog();  // Check for watchdog timeout
     rgb.update();  // Update RGB LEDs based on current mode
+    // can.write();
 }

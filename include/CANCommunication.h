@@ -13,6 +13,7 @@ public:
     void init();
     void receiveMessage();
     void checkWatchdog();
+    void write();
 
     void setAPI(API* api);
 

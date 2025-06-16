@@ -12,6 +12,13 @@ void CANCommunication::checkWatchdog() {
     }
 }
 
+void CANCommunication::write()
+{
+    _msg.buf[0] = 1;
+    _msg.len = 1;
+    _can.write(_msg);
+}
+
 void CANCommunication::setAPI(API* api) {
     _api = api;
 }
